@@ -1,3 +1,7 @@
+package maincode;
+
+import taxcode.TaxSystem;
+
 public class Company {
 
     private String title;
@@ -6,7 +10,12 @@ public class Company {
 
     private Integer credit = 0;
 
-    private Integer taxSystem;
+    private TaxSystem taxSystem;
+
+    public Company(String title, TaxSystem taxSystem) {
+        this.taxSystem = taxSystem;
+        this.title = title;
+    }
 
     public void shiftMoney(int amount) {
 
@@ -18,27 +27,23 @@ public class Company {
 
     }
 
-    public Integer getDebit() {
-        return debit;
-    }
-
-    public void setDebit(Integer debit) {
-        this.debit = debit;
-    }
-
     public void increaseDebit(int increaser) {
         this.debit += increaser;
     }
 
-    public Integer getCredit() {
-        return credit;
-    }
-
-    public void setCredit(Integer credit) {
-        this.credit = credit;
-    }
-
     public void increaseCredit(int increaser) {
         this.credit += Math.abs(increaser);
+    }
+
+    public void setTaxSystem(TaxSystem taxSystem) {
+        this.taxSystem = taxSystem;
+    }
+
+    public void payTaxes() {
+        System.out.println();
+        System.out.printf("Компания %s уплатила налог в размере: %d руб. ", this.title, this.taxSystem.calcTaxFor(
+                this.debit,
+                this.credit
+        ));
     }
 }
