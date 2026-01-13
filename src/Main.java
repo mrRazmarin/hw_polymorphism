@@ -19,6 +19,10 @@ public class Main {
 
         company.setTaxSystem(new TaxSystemFifteenPercent());
 
+        company.shiftMoney(10000);
+        company.shiftMoney(-5000);
+        company.shiftMoney(0);
+
         company.payTaxes(); // 750 = ((10000 - 5000) / 100) * 15
 
         System.out.println();
