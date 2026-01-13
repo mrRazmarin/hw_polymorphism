@@ -45,5 +45,7 @@ public class Company {
                 this.debit,
                 this.credit
         ));
+        this.debit = 0;
+        this.credit = 0;
     }
 }
